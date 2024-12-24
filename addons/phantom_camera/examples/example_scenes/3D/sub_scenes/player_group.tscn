@@ -21,7 +21,6 @@ far = 4000.0
 
 [node name="PlayerCharacterBody3D" parent="." instance=ExtResource("1_uqtij")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="PlayerPhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
