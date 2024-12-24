@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://daq164n1ps32u"]
+
+[ext_resource type="PackedScene" uid="uid://bulsh7s0ibmao" path="res://addons/phantom_camera/examples/example_scenes/3D/sub_scenes/playable_character_3d.tscn" id="1_ek8jx"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_oj2yv"]
+[ext_resource type="Resource" uid="uid://cptfoggk2ok67" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_3d_tween.tres" id="4_t8hoh"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="5_tsusf"]
+
+[sub_resource type="Resource" id="Resource_jtk1d"]
+script = ExtResource("5_tsusf")
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+
+[node name="PlayerGroup" type="Node3D"]
+
+[node name="PlayerCharacterBody3D" parent="." instance=ExtResource("1_ek8jx")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="PlayerPhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+unique_name_in_owner = true
+transform = Transform3D(0.999858, 0, 0, 0, 0.94884, 0.315632, 0, -0.315637, 0.948825, 0, 2.5, 2.5)
+top_level = true
+script = ExtResource("3_oj2yv")
+priority = 10
+follow_mode = 2
+follow_target = NodePath("../PlayerCharacterBody3D/PlayerVisual")
+tween_resource = ExtResource("4_t8hoh")
+camera_3d_resource = SubResource("Resource_jtk1d")
+follow_offset = Vector3(0, 1.5, 2.5)
+follow_damping = true
+follow_axis_lock = 3
+
+[editable path="PlayerCharacterBody3D"]
