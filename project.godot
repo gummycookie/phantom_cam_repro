@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="phantom_camera_repro"
-run/main_scene="res://addons/phantom_camera/examples/example_scenes/3D/3d_issue_reproduction.tscn"
+run/main_scene="res://addons/phantom_camera/examples/example_scenes/3D/3d_example_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
